@@ -13,9 +13,10 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="assets/ak-logo.png" />
 
+<link rel="preconnect" href="https://res.cloudinary.com" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   body { margin:0; background:#ffffff; -webkit-font-smoothing:antialiased; }
   * { box-sizing:border-box; }
@@ -43,6 +44,15 @@
 .ak-hide{display:none !important}
 .faq-a[hidden],#ak-modal[hidden]{display:none}
 .ak-err{margin:14px 0 0;font:700 13.5px/1.5 Mulish,sans-serif;color:#c0392b;text-align:center}
+/* Split sections stack below 900px. Centre their copy so they match the
+   rest of the page; lists inside them stay left-aligned. */
+@media (max-width:899px){
+  .ak-split{grid-template-columns:1fr !important}
+  .ak-copy{text-align:center}
+  .ak-copy p{margin-left:auto !important;margin-right:auto !important}
+  .ak-copy > div{justify-content:center}
+  .ak-copy .ak-rows{text-align:left;justify-content:normal}
+}
 .ak-err[hidden]{display:none}
 </style>
 <script type="application/ld+json">
@@ -81,7 +91,7 @@
     </div>
   </header>
 
-  <section id="top" style="background:linear-gradient(170deg,#f4fbfd 0%,#ffffff 55%,#f6fbf4 100%);padding:clamp(44px,6vw,80px) 20px clamp(60px,7vw,96px)">
+  <section id="top" style="background:linear-gradient(170deg,#f4fbfd 0%,#ffffff 55%,#f2f7fa 100%);padding:clamp(40px,6vw,80px) 20px clamp(48px,7vw,96px)">
     <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr));gap:clamp(36px,5vw,64px);align-items:center">
 
       <div style="animation:akUp .7s ease both">
@@ -148,7 +158,7 @@
     </div>
   </section>
 
-  <section id="reviews" style="background:#f2f7fa;padding:clamp(56px,6.5vw,92px) 20px">
+  <section id="reviews" style="background:#f2f7fa;padding:clamp(42px,6.5vw,92px) 20px">
     <div style="max-width:1100px;margin:0 auto">
       <div style="text-align:center">
         <span style="display:inline-block;background:#e3f1f6;color:#0b7f9c;font:800 11.5px/1 Mulish,sans-serif;letter-spacing:1.9px;text-transform:uppercase;padding:9px 17px;border-radius:999px">Trusted by Property Owners</span>
@@ -206,13 +216,13 @@
     </div>
   </section>
 
-  <section style="background:#fff;padding:clamp(60px,7vw,100px) 20px">
-    <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(32px,4vw,56px);align-items:center">
-      <div>
+  <section style="background:#fff;padding:clamp(44px,7vw,100px) 20px">
+    <div class="ak-split" style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(32px,4vw,56px);align-items:center">
+      <div class="ak-copy">
         <span style="display:inline-block;background:#e3f1f6;color:#0b7f9c;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">Sound Familiar?</span>
         <h2 style="font:800 clamp(28px,3.4vw,44px)/1.14 Nunito,sans-serif;letter-spacing:-0.8px;color:#0f2d3a;margin:20px 0 0">“We Fixed It. So Why Is It Leaking Again?”</h2>
         <p style="font:400 17px/1.6 Mulish,sans-serif;color:#5c7480;margin:18px 0 0">You may have already:</p>
-        <div style="display:grid;gap:12px;margin:20px 0 0">
+        <div class="ak-rows" style="display:grid;gap:12px;margin:20px 0 0">
           <div style="display:flex;align-items:center;gap:14px;background:#f7fafb;border:1px solid rgba(17,50,64,0.07);border-radius:14px;padding:16px 18px"><span style="width:8px;height:8px;border-radius:50%;background:#d7492f;flex:0 0 auto"></span><span style="font:700 15.5px/1.4 Mulish,sans-serif;color:#0f2d3a">Tried patchwork.</span></div>
           <div style="display:flex;align-items:center;gap:14px;background:#f7fafb;border:1px solid rgba(17,50,64,0.07);border-radius:14px;padding:16px 18px"><span style="width:8px;height:8px;border-radius:50%;background:#d7492f;flex:0 0 auto"></span><span style="font:700 15.5px/1.4 Mulish,sans-serif;color:#0f2d3a">Called multiple contractors.</span></div>
           <div style="display:flex;align-items:center;gap:14px;background:#f7fafb;border:1px solid rgba(17,50,64,0.07);border-radius:14px;padding:16px 18px"><span style="width:8px;height:8px;border-radius:50%;background:#d7492f;flex:0 0 auto"></span><span style="font:700 15.5px/1.4 Mulish,sans-serif;color:#0f2d3a">Got different explanations.</span></div>
@@ -220,7 +230,7 @@
           <div style="display:flex;align-items:center;gap:14px;background:#f7fafb;border:1px solid rgba(17,50,64,0.07);border-radius:14px;padding:16px 18px"><span style="width:8px;height:8px;border-radius:50%;background:#d7492f;flex:0 0 auto"></span><span style="font:700 15.5px/1.4 Mulish,sans-serif;color:#0f2d3a">Still worried about the next monsoon.</span></div>
         </div>
       </div>
-      <div style="background:linear-gradient(165deg,#f4fbfd,#f6fbf4);border:1px solid rgba(17,50,64,0.08);border-radius:22px;box-shadow:0 10px 34px rgba(17,50,64,0.07);padding:clamp(28px,3.4vw,44px)">
+      <div class="ak-copy" style="background:linear-gradient(165deg,#f4fbfd,#eef6fa);border:1px solid rgba(17,50,64,0.08);border-radius:22px;box-shadow:0 10px 34px rgba(17,50,64,0.07);padding:clamp(28px,3.4vw,44px)">
         <h3 style="font:800 clamp(23px,2.4vw,30px)/1.25 Nunito,sans-serif;color:#0f2d3a;margin:0">The visible leak may not be the real problem.</h3>
         <p style="font:400 17px/1.65 Mulish,sans-serif;color:#5c7480;margin:18px 0 0">That’s why we start with <strong style="color:#0f2d3a;font-weight:800">inspection and diagnosis — not guesswork.</strong></p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0">
@@ -234,7 +244,7 @@
     </div>
   </section>
 
-  <section style="background:#f2f7fa;padding:clamp(60px,7vw,100px) 20px">
+  <section style="background:#f2f7fa;padding:clamp(44px,7vw,100px) 20px">
     <div style="max-width:1160px;margin:0 auto;text-align:center">
       <span style="display:inline-block;background:#e3f1f6;color:#0b7f9c;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">What Is Your Water Leakage Problem?</span>
       <h2 style="font:800 clamp(28px,3.4vw,44px)/1.14 Nunito,sans-serif;letter-spacing:-0.8px;color:#0f2d3a;margin:20px 0 0">Tell Us Where It Hurts.</h2>
@@ -264,7 +274,7 @@
     </div>
   </section>
 
-  <section id="services" style="background:#fff;padding:clamp(60px,7vw,104px) 20px">
+  <section id="services" style="background:#fff;padding:clamp(44px,7vw,104px) 20px">
     <div style="max-width:1160px;margin:0 auto">
       <div style="text-align:center;max-width:680px;margin:0 auto">
         <span style="display:inline-block;background:#e3f1f6;color:#0b7f9c;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">Complete Waterproofing Solutions</span>
@@ -343,7 +353,7 @@
     </div>
   </section>
 
-  <section style="background:#f4f9f2;padding:clamp(60px,7vw,100px) 20px">
+  <section style="background:#f2f7fa;padding:clamp(44px,7vw,100px) 20px">
     <div style="max-width:1160px;margin:0 auto;text-align:center">
       <span style="display:inline-block;background:#e6f3e2;color:#3d8f26;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">The AK Enterprises Difference</span>
       <h2 style="font:800 clamp(28px,3.4vw,44px)/1.14 Nunito,sans-serif;letter-spacing:-0.8px;color:#0f2d3a;margin:20px 0 0;max-width:840px;margin-left:auto;margin-right:auto">We Don't Just Cover the Leak. We Look for the Cause.</h2>
@@ -377,9 +387,9 @@
     </div>
   </section>
 
-  <section style="background:#fff;padding:clamp(60px,7vw,100px) 20px">
-    <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,4vw,60px);align-items:center">
-      <div>
+  <section style="background:#fff;padding:clamp(44px,7vw,100px) 20px">
+    <div class="ak-split" style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(32px,4vw,60px);align-items:center">
+      <div class="ak-copy">
         <span style="display:inline-block;background:#e3f1f6;color:#0b7f9c;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">The People Behind the Work</span>
         <h2 style="font:800 clamp(28px,3.4vw,42px)/1.14 Nunito,sans-serif;letter-spacing:-0.8px;color:#0f2d3a;margin:20px 0 0">Experienced Team. Practical Waterproofing Solutions.</h2>
         <p style="font:400 17px/1.65 Mulish,sans-serif;color:#5c7480;margin:20px 0 0;max-width:560px">AK Enterprises provides waterproofing and structural leakage treatment for <strong style="color:#0f2d3a;font-weight:800">residential, commercial and industrial properties across NCR.</strong></p>
@@ -396,7 +406,7 @@
     </div>
   </section>
 
-  <section style="background:#f2f7fa;padding:clamp(60px,7vw,100px) 20px">
+  <section style="background:#f2f7fa;padding:clamp(44px,7vw,100px) 20px">
     <div style="max-width:1160px;margin:0 auto;text-align:center">
       <span style="display:inline-block;background:#e3f1f6;color:#0b7f9c;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">Simple &amp; Stress-Free</span>
       <h2 style="font:800 clamp(28px,3.4vw,44px)/1.14 Nunito,sans-serif;letter-spacing:-0.8px;color:#0f2d3a;margin:20px 0 0">Your Waterproofing Solution in 3 Steps</h2>
@@ -421,7 +431,7 @@
     </div>
   </section>
 
-  <section id="work" style="background:#fff;padding:clamp(60px,7vw,104px) 20px">
+  <section id="work" style="background:#fff;padding:clamp(44px,7vw,104px) 20px">
     <div style="max-width:1160px;margin:0 auto">
       <div style="text-align:center;max-width:640px;margin:0 auto">
         <span style="display:inline-block;background:#e3f1f6;color:#0b7f9c;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">See the Work</span>
@@ -462,7 +472,7 @@
     </div>
   </section>
 
-  <section id="projects" style="background:#f2f7fa;padding:clamp(60px,7vw,100px) 20px">
+  <section id="projects" style="background:#f2f7fa;padding:clamp(44px,7vw,100px) 20px">
     <div style="max-width:1160px;margin:0 auto">
       <div style="text-align:center;max-width:620px;margin:0 auto">
         <span style="display:inline-block;background:#e3f1f6;color:#0b7f9c;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">Completed Works</span>
@@ -518,7 +528,7 @@
     </div>
   </section>
 
-  <section style="background:#fff;padding:clamp(56px,6vw,92px) 20px">
+  <section style="background:#fff;padding:clamp(42px,6vw,92px) 20px">
     <div style="max-width:1160px;margin:0 auto;text-align:center">
       <span style="display:inline-block;background:#e3f1f6;color:#0b7f9c;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">Our Corporate Clients</span>
       <h2 style="font:800 clamp(26px,3.2vw,40px)/1.14 Nunito,sans-serif;letter-spacing:-0.8px;color:#0f2d3a;margin:20px 0 0">Trusted by Businesses Across NCR</h2>
@@ -535,7 +545,7 @@
     </div>
   </section>
 
-  <section style="background:#f2f7fa;padding:clamp(60px,7vw,100px) 20px">
+  <section style="background:#f2f7fa;padding:clamp(44px,7vw,100px) 20px">
     <div style="max-width:900px;margin:0 auto">
       <div style="text-align:center">
         <span style="display:inline-block;background:#e3f1f6;color:#0b7f9c;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">Before You Hire a Waterproofing Contractor</span>
@@ -572,7 +582,7 @@
     </div>
   </section>
 
-  <section style="background:#f4f9f2;padding:clamp(56px,6vw,92px) 20px">
+  <section style="background:#ffffff;padding:clamp(42px,6vw,92px) 20px">
     <div style="max-width:1160px;margin:0 auto;text-align:center">
       <span style="display:inline-block;background:#e6f3e2;color:#3d8f26;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">Find Us Near You</span>
       <h2 style="font:800 clamp(26px,3.2vw,40px)/1.14 Nunito,sans-serif;letter-spacing:-0.8px;color:#0f2d3a;margin:20px 0 0">Waterproofing Services Across Ghaziabad NCR</h2>
@@ -590,7 +600,7 @@
     </div>
   </section>
 
-  <section id="faqs" style="background:#fff;padding:clamp(60px,7vw,100px) 20px">
+  <section id="faqs" style="background:#f2f7fa;padding:clamp(44px,7vw,100px) 20px">
     <div style="max-width:860px;margin:0 auto">
       <div style="text-align:center">
         <span style="display:inline-block;background:#e3f1f6;color:#0b7f9c;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">Good to Know</span>
@@ -658,7 +668,7 @@
     </div>
   </section>
 
-  <section style="background:linear-gradient(160deg,#0f7f9c,#0b6a86 55%,#125c6e);padding:clamp(64px,7vw,104px) 20px;text-align:center">
+  <section style="background:linear-gradient(160deg,#0f7f9c,#0b6a86 55%,#125c6e);padding:clamp(48px,7vw,104px) 20px;text-align:center">
     <div style="max-width:820px;margin:0 auto">
       <span style="display:inline-block;background:rgba(255,255,255,0.16);color:#fff;font:800 12px/1 Mulish,sans-serif;letter-spacing:1.8px;text-transform:uppercase;padding:10px 18px;border-radius:999px">Don't Wait for the Next Monsoon</span>
       <h2 style="font:800 clamp(30px,3.8vw,48px)/1.12 Nunito,sans-serif;letter-spacing:-1px;color:#fff;margin:22px 0 0">Get Your Leakage Inspected Before It Gets Worse.</h2>
@@ -672,7 +682,7 @@
     </div>
   </section>
 
-  <footer style="background:#0f2d3a;padding:clamp(52px,6vw,80px) 20px 40px">
+  <footer style="background:#0f2d3a;padding:clamp(44px,6vw,80px) 20px 40px">
     <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:40px">
       <div>
         <span style="display:inline-flex;background:#fff;border-radius:14px;padding:12px 16px"><img src="assets/ak-logo.png" alt="AK Enterprises" style="height:52px;width:auto;display:block" /></span>
