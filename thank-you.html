@@ -113,13 +113,28 @@
   </main>
 </div>
 
+<script src="assets/ak-leads.js"></script>
 <script>
 window.akQ = function (e) {
   e.preventDefault();
-  var f = document.getElementById('q-form');
-  var d = document.getElementById('q-done');
-  if (f) f.hidden = true;
-  if (d) d.hidden = false;
+  var form = e.target;
+  var btn = form.querySelector('button[type="submit"]');
+  if (btn) { btn.disabled = true; btn.textContent = 'SENDING...'; }
+
+  function finish() {
+    var f = document.getElementById('q-form');
+    var d = document.getElementById('q-done');
+    if (f) f.hidden = true;
+    if (d) d.hidden = false;
+  }
+
+  // The lead is already saved; these answers are a bonus. Never make the
+  // visitor deal with an error for them - just log and thank them.
+  window.akSubmitSurvey(form).then(finish, function (err) {
+    if (window.console) console.error('[ak] survey submit failed', err);
+    finish();
+  });
+
   return false;
 };
 </script>

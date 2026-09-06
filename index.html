@@ -42,6 +42,8 @@
 @media (max-width:360px){#ak-hdr{gap:8px !important;padding:10px 10px !important}#ak-hdr img{height:32px !important}#ak-hdr-cta{gap:6px !important}#ak-hdr-cta>a{padding:9px 11px !important;font-size:12px !important}}
 .ak-hide{display:none !important}
 .faq-a[hidden],#ak-modal[hidden]{display:none}
+.ak-err{margin:14px 0 0;font:700 13.5px/1.5 Mulish,sans-serif;color:#c0392b;text-align:center}
+.ak-err[hidden]{display:none}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"AK Enterprises","description":"Professional waterproofing services in Ghaziabad NCR - terrace, bathroom, wall, basement, water tank and swimming pool leakage treatment.","telephone":"+91-9958561720","email":"akenterprises.rajib@gmail.com","address":{"@type":"PostalAddress","streetAddress":"58/5DT-19 Vandana Enclave, Khora Colony, Indirapuram","addressLocality":"Ghaziabad","addressRegion":"Uttar Pradesh","postalCode":"201309","addressCountry":"IN"},"areaServed":"Ghaziabad NCR","openingHours":"Mo-Sa 10:00-19:00"}
@@ -753,6 +755,7 @@
 
 </div>
 
+<script src="assets/ak-leads.js"></script>
 <script>
 (function () {
   var openIdx = -1;
@@ -801,9 +804,36 @@
     if (e.key === 'Escape' && modal && !modal.hidden) window.akCloseModal();
   });
 
+  function akError(form, msg) {
+    var box = form.querySelector('.ak-err');
+    if (!box) {
+      box = document.createElement('p');
+      box.className = 'ak-err';
+      box.setAttribute('role', 'alert');
+      form.appendChild(box);
+    }
+    box.textContent = msg || '';
+    box.hidden = !msg;
+  }
+
   window.akLead = function (e) {
     e.preventDefault();
-    window.location.href = 'thank-you.html';
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn ? btn.textContent : '';
+    var source = form.closest('#ak-modal') ? 'modal' : 'hero';
+
+    akError(form, '');
+    if (btn) { btn.disabled = true; btn.textContent = 'SENDING...'; }
+
+    window.akSubmitLead(form, source).then(function () {
+      window.location.href = 'thank-you.html';
+    }, function (err) {
+      if (btn) { btn.disabled = false; btn.textContent = label; }
+      akError(form, 'Could not send your request. Please call 9958561720 or message us on WhatsApp.');
+      if (window.console) console.error('[ak] lead submit failed', err);
+    });
+
     return false;
   };
 
