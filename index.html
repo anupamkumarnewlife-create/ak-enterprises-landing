@@ -44,6 +44,16 @@
 .ak-hide{display:none !important}
 .faq-a[hidden],#ak-modal[hidden]{display:none}
 .ak-err{margin:14px 0 0;font:700 13.5px/1.5 Mulish,sans-serif;color:#c0392b;text-align:center}
+/* Grid and flex children default to min-width:auto, so a track cannot
+   shrink below its content's intrinsic minimum. The hero form column
+   demands ~332px; on a 360px phone only 320px is available, so the
+   column grew and pushed the whole hero ~18px to the right - which the
+   wrapper's overflow-x:hidden then clipped, eating the right gutter and
+   leaving text against the screen edge. Letting the children shrink is
+   the fix; the caps below stop any control doing the same again. */
+.ak-split, .ak-split > *{min-width:0}
+img, input, select, textarea{max-width:100%}
+
 /* Split sections stack below 900px. Centre their copy so they match the
    rest of the page; lists inside them stay left-aligned. */
 @media (max-width:899px){
@@ -52,6 +62,15 @@
   .ak-copy p{margin-left:auto !important;margin-right:auto !important}
   .ak-copy > div{justify-content:center}
   .ak-copy .ak-rows{text-align:left;justify-content:normal}
+
+  /* the form card sits under centred hero copy, so its heading matches */
+  #lead-form form > h2,
+  #lead-form form > p:first-of-type{text-align:center}
+}
+
+/* narrow phones: give the fields back the room the card padding takes */
+@media (max-width:400px){
+  #lead-form form{padding:22px 18px !important}
 }
 .ak-err[hidden]{display:none}
 </style>
