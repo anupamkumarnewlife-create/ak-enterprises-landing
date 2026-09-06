@@ -38,7 +38,8 @@
 .hv8:hover{background:#e3f1f6 !important}
 .fc9:focus{border-color:#0b7f9c !important;background:#fff !important;box-shadow:0 0 0 4px rgba(11,127,156,0.12) !important}
 #ak-bar{display:none}
-@media (max-width:819px){#ak-bar{display:block}#ak-nav{display:none !important}}
+@media (max-width:819px){#ak-bar{display:block}#ak-nav{display:none !important}#ak-hdr{gap:10px !important;padding:10px 12px !important;flex-wrap:nowrap !important}#ak-hdr img{height:34px !important}#ak-hdr-cta{gap:8px !important;flex:0 1 auto !important;min-width:0 !important}#ak-hdr-cta>a{padding:10px 13px !important;font-size:12.5px !important;gap:6px !important;white-space:nowrap !important}#ak-hdr-cta svg{width:13px !important;height:13px !important;flex:0 0 auto !important}}
+@media (max-width:360px){#ak-hdr{gap:8px !important;padding:10px 10px !important}#ak-hdr img{height:32px !important}#ak-hdr-cta{gap:6px !important}#ak-hdr-cta>a{padding:9px 11px !important;font-size:12px !important}}
 .ak-hide{display:none !important}
 .faq-a[hidden],#ak-modal[hidden]{display:none}
 </style>
@@ -57,7 +58,7 @@
   </div>
 
   <header style="position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(17,50,64,0.08)">
-    <div style="max-width:1160px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+    <div id="ak-hdr" style="max-width:1160px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <a href="#top" style="display:flex;align-items:center;flex:0 0 auto"><img src="assets/ak-logo.png" alt="AK Enterprises" style="height:46px;width:auto;display:block" /></a>
       <nav id="ak-nav" style="display:flex;align-items:center;gap:26px;flex:1 1 auto;justify-content:center;flex-wrap:wrap">
         <a href="#services" style="font:700 15px/1 Mulish,sans-serif;color:#33505c">Services</a>
@@ -65,7 +66,7 @@
         <a href="#reviews" style="font:700 15px/1 Mulish,sans-serif;color:#33505c">Reviews</a>
         <a href="#faqs" style="font:700 15px/1 Mulish,sans-serif;color:#33505c">FAQs</a>
       </nav>
-      <div style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
+      <div id="ak-hdr-cta" style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
         <a href="tel:+919958561720" style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid rgba(17,50,64,0.14);border-radius:999px;padding:11px 20px;font:800 14px/1 Nunito,sans-serif;color:#0f2d3a;box-shadow:0 2px 8px rgba(17,50,64,0.05)" class="hv1">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0b7f9c" stroke-width="2.2" stroke-linecap="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z" /></svg>
           9958561720
