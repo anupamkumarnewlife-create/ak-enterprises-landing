@@ -68,9 +68,29 @@ img, input, select, textarea{max-width:100%}
   #lead-form form > p:first-of-type{text-align:center}
 }
 
+/* Mobile: the lead form ran 628px tall, so on a 640px-tall phone the
+   popup could not fit and had to scroll. Tighter type, padding and
+   label rhythm bring it down without shrinking the tap targets.
+   Inputs go to 16px because iOS zooms the page on focus below that. */
+@media (max-width:819px){
+  .ak-form{padding:20px 16px !important}
+  .ak-form h2{font-size:20px !important;line-height:1.25 !important}
+  .ak-form > p:first-of-type{margin:6px 0 14px !important;font-size:13px !important}
+  .ak-form label{margin:12px 0 6px !important;font-size:12.5px !important}
+  .ak-form label:first-of-type{margin-top:0 !important}
+  .ak-form input,.ak-form select{padding:11px 13px !important;font-size:16px !important;border-radius:10px !important}
+  .ak-form button[type="submit"]{padding:15px 20px !important;font-size:15px !important;margin-top:18px !important}
+  .ak-form > p:last-of-type{margin-top:12px !important;font-size:12px !important}
+
+  /* popup: less frame, and top-anchored so a tall card cannot clip its
+     own heading behind the top edge the way margin:auto does */
+  #ak-modal > div{padding:12px !important}
+  #ak-modal > div > div{padding:20px 16px !important;margin:0 auto !important}
+}
+
 /* narrow phones: give the fields back the room the card padding takes */
 @media (max-width:400px){
-  #lead-form form{padding:22px 18px !important}
+  .ak-form{padding:18px 14px !important}
 }
 .ak-err[hidden]{display:none}
 </style>
@@ -137,7 +157,7 @@ img, input, select, textarea{max-width:100%}
 
       <div id="lead-form" style="animation:akUp .8s ease both .12s">
         
-          <form onsubmit="return akLead(event)" style="background:#fff;border:1px solid rgba(17,50,64,0.09);border-radius:22px;box-shadow:0 22px 60px rgba(17,50,64,0.12);padding:clamp(24px,3vw,34px)">
+          <form class="ak-form" onsubmit="return akLead(event)" style="background:#fff;border:1px solid rgba(17,50,64,0.09);border-radius:22px;box-shadow:0 22px 60px rgba(17,50,64,0.12);padding:clamp(24px,3vw,34px)">
             <h2 style="font:800 clamp(23px,2.2vw,28px)/1.2 Nunito,sans-serif;color:#0f2d3a;margin:0">Get Your Leakage Inspected</h2>
             <p style="font:400 14.5px/1.55 Mulish,sans-serif;color:#5c7480;margin:9px 0 24px">Free inspection · Expert assessment · Clear estimate</p>
 
@@ -744,7 +764,7 @@ img, input, select, textarea{max-width:100%}
         <button type="button" onclick="akCloseModal()" aria-label="Close" style="position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:none;background:#f1f5f7;color:#0f2d3a;font:700 18px/1 Nunito,sans-serif;cursor:pointer" class="hv8">×</button>
         <h2 style="font:800 clamp(22px,2.2vw,27px)/1.2 Nunito,sans-serif;color:#0f2d3a;margin:0;padding-right:40px">Get Your Leakage Inspected</h2>
         <p style="font:400 14.5px/1.55 Mulish,sans-serif;color:#5c7480;margin:9px 0 24px">Free inspection · Expert assessment · Clear estimate</p>
-        <form onsubmit="return akLead(event)">
+        <form class="ak-form" onsubmit="return akLead(event)">
           <label for="mk-name" style="display:block;font:700 13px/1 Mulish,sans-serif;color:#0f2d3a;margin:0 0 8px">Full Name <span style="color:#d7492f">*</span></label>
           <input id="mk-name" name="name" required="required" placeholder="Your name" style="width:100%;background:#f4f8fa;border:1.5px solid rgba(17,50,64,0.1);border-radius:12px;padding:15px 16px;font:500 15px/1 Mulish,sans-serif;color:#0f2d3a;outline:none" class="fc9" />
           <label for="mk-mobile" style="display:block;font:700 13px/1 Mulish,sans-serif;color:#0f2d3a;margin:18px 0 8px">Mobile Number <span style="color:#d7492f">*</span></label>
@@ -776,8 +796,8 @@ img, input, select, textarea{max-width:100%}
 
   <div id="ak-bar">
     <div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-top:1px solid rgba(17,50,64,0.12);padding:10px 12px;display:flex;gap:8px;box-shadow:0 -6px 24px rgba(17,50,64,0.12)">
-      <a href="tel:+919958561720" style="flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#fff;border:1.5px solid rgba(17,50,64,0.16);color:#0f2d3a;font:800 13.5px/1 Nunito,sans-serif;padding:15px 18px;border-radius:999px">CALL</a>
-      <a href="https://wa.me/919958561720" target="_blank" rel="noopener" style="flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;background:#2ba84a;color:#fff;font:800 13.5px/1 Nunito,sans-serif;padding:15px 18px;border-radius:999px">WHATSAPP</a>
+      <a href="tel:+919958561720" aria-label="Call AK Enterprises" title="Call" class="ak-bar-icon" style="flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;background:#fff;border:1.5px solid rgba(17,50,64,0.16);border-radius:999px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0b7f9c" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z" /></svg></a>
+      <a href="https://wa.me/919958561720" target="_blank" rel="noopener" aria-label="WhatsApp AK Enterprises" title="WhatsApp" class="ak-bar-icon" style="flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;background:#2ba84a;border-radius:999px"><svg width="21" height="21" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.347-.347.52-.52.174-.174.232-.298.347-.497.116-.198.058-.371-.014-.52-.072-.148-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg></a>
       <a href="#lead-form" style="flex:1 1 auto;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#12a1c0,#0b7f9c);color:#fff;font:800 13.5px/1 Nunito,sans-serif;padding:15px 16px;border-radius:999px">BOOK INSPECTION</a>
     </div>
   </div>

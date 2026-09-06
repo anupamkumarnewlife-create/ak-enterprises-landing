@@ -17,6 +17,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
+  /* Mobile: 11 answer pills at 40px each made this card 728px tall.
+     Smaller pills and tighter groups; the question titles keep a bigger
+     gap above them so the three groups still read as separate. */
+  @media (max-width:819px){
+    .ak-q{margin-top:18px !important}
+    .ak-q-title{font-size:14.5px !important;margin-top:20px !important}
+    .ak-q-opts{gap:7px !important;margin-top:10px !important}
+    .ak-q label{padding:9px 13px !important;font-size:12.5px !important}
+    .ak-q button[type="submit"]{padding:15px 20px !important;font-size:15px !important;margin-top:20px !important}
+    main > div{padding:20px 16px !important}
+  }
   body { margin:0; background:#f4fbfd; -webkit-font-smoothing:antialiased; }
   * { box-sizing:border-box; }
   a { color:#0b7f9c; text-decoration:none; }
@@ -65,9 +76,9 @@
       <h2 style="font:800 clamp(21px,2.4vw,27px)/1.25 Nunito,sans-serif;color:#0f2d3a;margin:18px 0 0">Answer 3 quick questions:</h2>
 
       <div id="q-form">
-        <form onsubmit="return akQ(event)" style="margin:26px 0 0">
-          <div style="font:800 15px/1.3 Nunito,sans-serif;color:#0f2d3a">Where is the leakage?</div>
-          <div style="display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0">
+        <form class="ak-q" onsubmit="return akQ(event)" style="margin:26px 0 0">
+          <div class="ak-q-title" style="font:800 15px/1.3 Nunito,sans-serif;color:#0f2d3a">Where is the leakage?</div>
+          <div class="ak-q-opts" style="display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0">
             <label style="display:inline-flex;align-items:center;gap:8px;background:#f4f8fa;border:1.5px solid rgba(17,50,64,0.1);border-radius:999px;padding:12px 18px;font:700 14px/1 Mulish,sans-serif;color:#0f2d3a;cursor:pointer"><input type="radio" name="where" value="Roof" style="accent-color:#0b7f9c;margin:0" />Roof</label>
             <label style="display:inline-flex;align-items:center;gap:8px;background:#f4f8fa;border:1.5px solid rgba(17,50,64,0.1);border-radius:999px;padding:12px 18px;font:700 14px/1 Mulish,sans-serif;color:#0f2d3a;cursor:pointer"><input type="radio" name="where" value="Bathroom" style="accent-color:#0b7f9c;margin:0" />Bathroom</label>
             <label style="display:inline-flex;align-items:center;gap:8px;background:#f4f8fa;border:1.5px solid rgba(17,50,64,0.1);border-radius:999px;padding:12px 18px;font:700 14px/1 Mulish,sans-serif;color:#0f2d3a;cursor:pointer"><input type="radio" name="where" value="Wall" style="accent-color:#0b7f9c;margin:0" />Wall</label>
@@ -76,15 +87,15 @@
             <label style="display:inline-flex;align-items:center;gap:8px;background:#f4f8fa;border:1.5px solid rgba(17,50,64,0.1);border-radius:999px;padding:12px 18px;font:700 14px/1 Mulish,sans-serif;color:#0f2d3a;cursor:pointer"><input type="radio" name="where" value="Other" style="accent-color:#0b7f9c;margin:0" />Other</label>
           </div>
 
-          <div style="font:800 15px/1.3 Nunito,sans-serif;color:#0f2d3a;margin:28px 0 0">How long has it been happening?</div>
-          <div style="display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0">
+          <div class="ak-q-title" style="font:800 15px/1.3 Nunito,sans-serif;color:#0f2d3a;margin:28px 0 0">How long has it been happening?</div>
+          <div class="ak-q-opts" style="display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0">
             <label style="display:inline-flex;align-items:center;gap:8px;background:#f4f8fa;border:1.5px solid rgba(17,50,64,0.1);border-radius:999px;padding:12px 18px;font:700 14px/1 Mulish,sans-serif;color:#0f2d3a;cursor:pointer"><input type="radio" name="since" value="Recently" style="accent-color:#0b7f9c;margin:0" />Recently</label>
             <label style="display:inline-flex;align-items:center;gap:8px;background:#f4f8fa;border:1.5px solid rgba(17,50,64,0.1);border-radius:999px;padding:12px 18px;font:700 14px/1 Mulish,sans-serif;color:#0f2d3a;cursor:pointer"><input type="radio" name="since" value="Few Months" style="accent-color:#0b7f9c;margin:0" />Few Months</label>
             <label style="display:inline-flex;align-items:center;gap:8px;background:#f4f8fa;border:1.5px solid rgba(17,50,64,0.1);border-radius:999px;padding:12px 18px;font:700 14px/1 Mulish,sans-serif;color:#0f2d3a;cursor:pointer"><input type="radio" name="since" value="1+ Year" style="accent-color:#0b7f9c;margin:0" />1+ Year</label>
           </div>
 
-          <div style="font:800 15px/1.3 Nunito,sans-serif;color:#0f2d3a;margin:28px 0 0">Have you tried waterproofing before?</div>
-          <div style="display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0">
+          <div class="ak-q-title" style="font:800 15px/1.3 Nunito,sans-serif;color:#0f2d3a;margin:28px 0 0">Have you tried waterproofing before?</div>
+          <div class="ak-q-opts" style="display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0">
             <label style="display:inline-flex;align-items:center;gap:8px;background:#f4f8fa;border:1.5px solid rgba(17,50,64,0.1);border-radius:999px;padding:12px 18px;font:700 14px/1 Mulish,sans-serif;color:#0f2d3a;cursor:pointer"><input type="radio" name="tried" value="Yes" style="accent-color:#0b7f9c;margin:0" />Yes, but the leakage came back</label>
             <label style="display:inline-flex;align-items:center;gap:8px;background:#f4f8fa;border:1.5px solid rgba(17,50,64,0.1);border-radius:999px;padding:12px 18px;font:700 14px/1 Mulish,sans-serif;color:#0f2d3a;cursor:pointer"><input type="radio" name="tried" value="No" style="accent-color:#0b7f9c;margin:0" />No</label>
           </div>
