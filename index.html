@@ -910,7 +910,9 @@ img, input, select, textarea{max-width:100%}
     if (btn) { btn.disabled = true; btn.textContent = 'SENDING...'; }
 
     window.akSubmitLead(form, source).then(function () {
-      window.location.href = 'thank-you.html';
+      window.akReportConversion(function () {
+        window.location.href = 'thank-you.html';
+      });
     }, function (err) {
       if (btn) { btn.disabled = false; btn.textContent = label; }
       akError(form, 'Could not send your request. Please call 9958561720 or message us on WhatsApp.');
