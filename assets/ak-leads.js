@@ -96,6 +96,38 @@
     });
   };
 
+  /* Reports the Google Ads conversion, then calls done().
+   *
+   * Fired from the success path of akSubmitLead, so it counts a lead only
+   * once the row is actually in the database - not on a submit click that
+   * might fail, and not on a thank-you page load that anyone could repeat
+   * by refreshing or bookmarking.
+   *
+   * event_callback lets the beacon leave before we navigate away, but it
+   * never arrives when an ad blocker eats gtag.js, so a timer guarantees
+   * the visitor still reaches the thank-you page either way. */
+  window.akReportConversion = function (done) {
+    var moved = false;
+    function go() {
+      if (moved) return;
+      moved = true;
+      done();
+    }
+
+    setTimeout(go, 1200);
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-18431522315/aCFNCMmO7-4cEIvs6tRE',
+        value: 1.0,
+        currency: 'INR',
+        event_callback: go
+      });
+    } else {
+      go();
+    }
+  };
+
   /* Saves the thank-you page survey, linked to the lead when we still know it. */
   window.akSubmitSurvey = function (form) {
     var data = new FormData(form);
